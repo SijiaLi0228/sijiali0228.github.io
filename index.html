@@ -1,55 +1,79 @@
 <!DOCTYPE html>
 <html lang="zh">
 <head>
-  <meta charset="UTF-8">
-  <title>🌻 Li Sijia · 阳光洒在向日葵上</title>
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <title>🌻 Li Sijia · 小小向日葵</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
   <style>
     body {
-      margin: 0;
-      font-family: 'Helvetica Neue', sans-serif;
-      background: linear-gradient(to bottom right, #fffdf5, #fff7e6);
+      font-family: "Helvetica Neue", sans-serif;
+      background: #fffef5;
       color: #333;
+      margin: 0;
+      padding: 2rem;
       text-align: center;
-      padding: 3rem 1rem;
+    }
+    .avatar {
+      width: 130px;
+      height: 130px;
+      border-radius: 50%;
+      border: 4px solid #f4c542;
+      object-fit: cover;
+      margin-top: 1rem;
     }
     h1 {
-      font-size: 2.8rem;
+      font-size: 2.3rem;
       color: #f4a300;
-      margin-bottom: 0.5rem;
+      margin-top: 1rem;
     }
     h2 {
       font-weight: normal;
-      font-size: 1.3rem;
       color: #666;
-      margin-top: 0;
+      margin-top: 0.5rem;
+      margin-bottom: 2rem;
     }
     .quote {
       font-style: italic;
-      margin: 2rem auto;
-      max-width: 600px;
       color: #888;
+      margin-bottom: 2.5rem;
     }
     .projects {
-      margin-top: 3rem;
+      max-width: 800px;
+      margin: 0 auto;
+      text-align: left;
     }
     .projects h3 {
-      font-size: 1.5rem;
       color: #d97b00;
+      font-size: 1.4rem;
+      margin-top: 2rem;
     }
-    ul {
+    .project-list {
       list-style: none;
-      padding: 0;
+      padding-left: 0;
     }
-    li {
-      margin: 0.7rem 0;
+    .project-list li {
+      margin: 1rem 0;
     }
-    a {
+    .project-list a {
       color: #d97b00;
+      font-weight: bold;
       text-decoration: none;
     }
-    a:hover {
+    .project-list a:hover {
       text-decoration: underline;
+    }
+    .button {
+      display: inline-block;
+      margin-top: 2rem;
+      padding: 0.6rem 1.2rem;
+      background: #f4c542;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 6px;
+      font-weight: bold;
+    }
+    .button:hover {
+      background: #e5af20;
     }
     footer {
       margin-top: 4rem;
@@ -60,21 +84,37 @@
 </head>
 <body>
 
-  <h1>🌻 小小向日葵</h1>
-  <h2>努力向阳中，也在代码中生长</h2>
+  <img src="avatar.png" alt="头像" class="avatar" />
+  <h1>🌻 Li Sijia</h1>
+  <h2>小小向日葵，努力向阳中</h2>
+  <p class="quote">热爱插件开发与数据可视化，也热爱生活中温柔的光。</p>
 
-  <p class="quote">“有光的时候，就抬头吸收一点。”<br>—— 来自生活与技术之间的一点温柔</p>
+  <a href="cv-sijia-li.pdf" class="button" target="_blank">📄 下载我的简历</a>
 
   <div class="projects">
-    <h3>🛠️ 我的项目精选</h3>
-    <ul>
-      <li><a href="https://github.com/SijiaLi0228/woocommerce-product-filter" target="_blank">WooCommerce 产品筛选插件</a></li>
+    <h3>🧩 插件开发 Projects</h3>
+    <ul class="project-list">
+      <li>
+        <a href="https://github.com/SijiaLi0228/new-restocked-products" target="_blank">🛒 New Restocked Products</a><br>
+        自动将新品/补货商品分类，并于 5 天后移除。
+      </li>
+      <li>
+        <a href="https://github.com/SijiaLi0228/woo-unit-converter" target="_blank">📏 Woo Unit Converter</a><br>
+        WooCommerce 单位转换插件。
+      </li>
+    </ul>
+
+    <h3>🐍 Python 工具</h3>
+    <ul class="project-list">
+      <li>
+        <a href="https://github.com/SijiaLi0228/allergen-highlighter" target="_blank">🔬 Allergen Highlighter</a><br>
+        欧盟配料过敏原高亮识别工具。
+      </li>
     </ul>
   </div>
 
   <footer>
-    © 2025 Sijia Li | 喜欢光、代码与创作 | <a href="mailto:lisijia228@gmail.com">联系我</a>
+    © 2025 Li Sijia | 向日而生 · 码而不止 | <a href="mailto:lisijia228@gmail.com">联系我</a>
   </footer>
-
 </body>
 </html>

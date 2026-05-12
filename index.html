@@ -6,17 +6,19 @@
   <title>Sijia Li | Analytics, Digital Commerce & Product Thinking</title>
   <style>
     :root {
-      --bg: #f6f7f4;
+      --rail: #244f59;
+      --rail-dark: #173840;
+      --bg: #f5f6f1;
       --surface: #ffffff;
-      --surface-soft: #eef4ef;
       --ink: #1f2933;
-      --muted: #5e6a72;
-      --line: #d8ded8;
+      --muted: #5d6872;
+      --line: #d9ded8;
       --blue: #1f5f8b;
       --green: #2f7d64;
       --amber: #b7791f;
       --coral: #bf5b4b;
-      --shadow: 0 18px 45px rgba(35, 48, 58, 0.08);
+      --soft: #eef4ef;
+      --shadow: 0 18px 45px rgba(31, 41, 51, 0.12);
     }
 
     * { box-sizing: border-box; }
@@ -29,82 +31,170 @@
       line-height: 1.55;
     }
     a { color: inherit; }
-    .page { max-width: 1180px; margin: 0 auto; padding: 24px; }
-    .nav {
+    button, a { -webkit-tap-highlight-color: transparent; }
+
+    .site {
+      min-height: 100vh;
+      display: grid;
+      grid-template-columns: minmax(270px, 30vw) minmax(0, 1fr);
+    }
+
+    .rail {
       position: sticky;
       top: 0;
-      z-index: 5;
+      height: 100vh;
       display: flex;
-      align-items: center;
+      flex-direction: column;
       justify-content: space-between;
-      gap: 16px;
-      padding: 14px 0;
-      background: rgba(246, 247, 244, 0.92);
-      backdrop-filter: blur(16px);
+      padding: 9vh 5vw 6vh;
+      background: linear-gradient(165deg, var(--rail), var(--rail-dark));
+      color: #fff;
     }
-    .brand {
-      font-weight: 800;
-      letter-spacing: 0;
-      display: flex;
-      align-items: center;
-      gap: 10px;
-    }
-    .brand-mark {
-      width: 30px;
-      height: 30px;
-      border-radius: 50%;
-      background: linear-gradient(135deg, var(--green), var(--blue));
+    .logo {
+      color: #fff;
+      text-decoration: none;
       display: inline-block;
     }
-    .nav-links { display: flex; gap: 10px; flex-wrap: wrap; justify-content: flex-end; }
-    .nav-links a, .button, .tab-button {
-      border: 1px solid var(--line);
-      background: var(--surface);
-      color: var(--ink);
-      text-decoration: none;
-      padding: 9px 12px;
-      border-radius: 8px;
-      font-weight: 700;
-      font-size: 14px;
-      cursor: pointer;
-    }
-    .nav-links a:hover, .button:hover, .tab-button:hover { border-color: var(--blue); color: var(--blue); }
-    .button.primary { background: var(--ink); color: #fff; border-color: var(--ink); }
-    .button.primary:hover { background: var(--blue); border-color: var(--blue); color: #fff; }
-
-    .hero {
-      min-height: min(760px, calc(100vh - 96px));
-      display: grid;
-      grid-template-columns: minmax(0, 1.05fr) minmax(320px, 0.95fr);
-      gap: 34px;
-      align-items: center;
-      padding: 34px 0 42px;
-    }
-    .eyebrow {
-      color: var(--green);
-      font-size: 14px;
-      font-weight: 800;
-      text-transform: uppercase;
-      margin-bottom: 12px;
-    }
-    h1 {
-      font-size: clamp(44px, 6vw, 74px);
+    .logo-name {
+      font-size: 34px;
+      font-weight: 900;
+      letter-spacing: 8px;
       line-height: 1;
-      margin: 0 0 18px;
-      letter-spacing: 0;
     }
-    .hero-copy {
+    .logo-home {
+      margin-top: 10px;
+      font-size: 13px;
+      letter-spacing: 3px;
+      opacity: 0.82;
+    }
+    .rail-note {
+      max-width: 240px;
+      margin-top: 34px;
+      color: rgba(255, 255, 255, 0.76);
+      font-size: 14px;
+    }
+    .contact-block { display: grid; gap: 18px; }
+    .contact-item span {
+      display: block;
+      margin-bottom: 4px;
+      color: rgba(255, 255, 255, 0.72);
+      font-size: 12px;
+      font-weight: 800;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+    }
+    .contact-item a, .contact-item strong {
+      color: #fff;
+      font-weight: 800;
+      text-decoration: none;
+      overflow-wrap: anywhere;
+    }
+    .social-row { display: flex; flex-wrap: wrap; gap: 10px; }
+    .social-row a {
+      border: 1px solid rgba(255, 255, 255, 0.32);
+      border-radius: 8px;
+      padding: 8px 10px;
+      color: #fff;
+      text-decoration: none;
+      font-size: 13px;
+      font-weight: 800;
+    }
+    .social-row a:hover { background: rgba(255, 255, 255, 0.12); }
+
+    .stage {
+      min-height: 100vh;
+      padding: 7vh 6vw 56px;
+      overflow: hidden;
+    }
+    .hero {
+      min-height: 74vh;
+      display: grid;
+      grid-template-columns: minmax(260px, 0.8fr) minmax(360px, 1fr);
+      gap: 44px;
+      align-items: center;
+      margin-bottom: 50px;
+    }
+    .portrait {
+      position: relative;
+    }
+    .portrait::before {
+      content: "";
+      position: absolute;
+      inset: 22px -22px -22px 22px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      z-index: 0;
+    }
+    .portrait img {
+      position: relative;
+      z-index: 1;
+      display: block;
+      width: 100%;
+      aspect-ratio: 4 / 5;
+      object-fit: cover;
+      border-radius: 8px;
+      box-shadow: var(--shadow);
+      background: #fff;
+    }
+    .intro .name {
+      color: var(--blue);
+      font-size: 42px;
+      font-weight: 900;
+      margin-bottom: 8px;
+    }
+    .intro .title {
+      color: var(--ink);
+      font-size: 18px;
+      font-weight: 900;
+      margin-bottom: 24px;
+    }
+    .intro .copy {
+      max-width: 560px;
       color: var(--muted);
-      font-size: 20px;
-      max-width: 680px;
-      margin: 0;
+      font-size: 18px;
+      margin-bottom: 26px;
     }
-    .hero-actions { display: flex; flex-wrap: wrap; gap: 12px; margin-top: 24px; }
-    .quick-facts {
+    .buttons, .tabs {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+    }
+    .button, .tab-button {
+      appearance: none;
+      border: 2px solid var(--blue);
+      border-radius: 999px;
+      background: transparent;
+      color: var(--blue);
+      cursor: pointer;
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      min-height: 42px;
+      padding: 9px 16px;
+      font-size: 13px;
+      font-weight: 900;
+      letter-spacing: 1.2px;
+      text-decoration: none;
+      text-transform: uppercase;
+      transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
+    }
+    .button:hover, .tab-button:hover, .tab-button[aria-selected="true"] {
+      background: var(--blue);
+      color: #fff;
+    }
+    .button.dark {
+      border-color: var(--ink);
+      background: var(--ink);
+      color: #fff;
+    }
+    .button.dark:hover { background: var(--rail); border-color: var(--rail); }
+
+    .facts {
       display: grid;
       grid-template-columns: repeat(3, minmax(0, 1fr));
-      gap: 10px;
-      margin-top: 28px;
+      gap: 12px;
+      margin-top: 26px;
+      max-width: 640px;
     }
     .fact {
       background: var(--surface);
@@ -112,169 +202,129 @@
       border-radius: 8px;
       padding: 14px;
     }
-    .fact strong { display: block; font-size: 18px; }
+    .fact strong {
+      display: block;
+      color: var(--ink);
+      font-size: 21px;
+      line-height: 1.2;
+    }
     .fact span { color: var(--muted); font-size: 13px; }
-    .visual-panel {
+
+    .panel {
+      display: none;
+      animation: enter 0.28s ease both;
+    }
+    .panel.active { display: block; }
+    @keyframes enter {
+      from { opacity: 0; transform: translateX(18px); }
+      to { opacity: 1; transform: translateX(0); }
+    }
+
+    .content-switcher {
       background: var(--surface);
       border: 1px solid var(--line);
       border-radius: 8px;
       box-shadow: var(--shadow);
-      padding: 18px;
+      padding: 24px;
+      margin-bottom: 36px;
     }
-    .profile-card {
-      display: grid;
-      grid-template-columns: 86px minmax(0, 1fr);
-      gap: 16px;
-      align-items: center;
-      padding-bottom: 16px;
-      border-bottom: 1px solid var(--line);
-    }
-    .avatar {
-      width: 86px;
-      height: 86px;
-      border-radius: 50%;
-      object-fit: cover;
-      border: 1px solid var(--line);
-      background: #fff;
-    }
-    .profile-card h2 { margin: 0 0 4px; font-size: 26px; }
-    .profile-card p { margin: 0; color: var(--muted); }
-    .intro-switcher { margin-top: 18px; }
-    .intro-controls { display: flex; gap: 8px; flex-wrap: wrap; margin-bottom: 12px; }
-    .tab-button[aria-selected="true"] {
-      background: var(--blue);
-      color: #fff;
-      border-color: var(--blue);
-    }
-    .intro-panel {
-      display: none;
-      min-height: 150px;
-      background: var(--surface-soft);
-      border: 1px solid #cfddd1;
-      border-radius: 8px;
-      padding: 16px;
-    }
-    .intro-panel.active { display: block; }
-    .intro-panel strong { display: block; margin-bottom: 8px; }
-    .intro-panel p { margin: 0; color: var(--muted); }
-
-    section { padding: 42px 0; }
-    .section-head {
+    .tabs { margin-bottom: 20px; }
+    .section-title {
       display: flex;
       justify-content: space-between;
-      gap: 24px;
       align-items: end;
+      gap: 22px;
       margin-bottom: 18px;
     }
-    .section-head h2 { font-size: 32px; line-height: 1.15; margin: 0; }
-    .section-head p { max-width: 580px; margin: 0; color: var(--muted); }
-    .grid { display: grid; grid-template-columns: repeat(3, minmax(0, 1fr)); gap: 16px; }
-    .two-grid { display: grid; grid-template-columns: repeat(2, minmax(0, 1fr)); gap: 16px; }
-    .card {
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 20px;
+    .section-title h2 {
+      margin: 0;
+      font-size: 30px;
+      line-height: 1.15;
     }
-    .card h3 { margin: 0 0 10px; font-size: 20px; }
-    .card p { color: var(--muted); margin: 0; }
-    .tag-row { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 14px; }
-    .tag {
-      display: inline-flex;
-      align-items: center;
-      min-height: 28px;
-      border-radius: 8px;
-      padding: 4px 9px;
-      background: #f1f3f1;
-      color: #42505a;
-      font-size: 13px;
-      font-weight: 700;
-    }
-    .tag.green { background: #e2f1e9; color: #27624f; }
-    .tag.blue { background: #e5eff6; color: #1f5f8b; }
-    .tag.amber { background: #f7ead2; color: #765016; }
-    .tag.coral { background: #f8e6e2; color: #8c4338; }
-
-    .story-layout {
-      display: grid;
-      grid-template-columns: 270px minmax(0, 1fr);
-      gap: 18px;
-    }
-    .story-tabs {
-      display: grid;
-      gap: 8px;
-      align-content: start;
-    }
-    .story-tabs .tab-button {
-      text-align: left;
-      width: 100%;
-      background: var(--surface);
-    }
-    .story-tabs .tab-button[aria-selected="true"] { background: var(--ink); border-color: var(--ink); color: #fff; }
-    .story-panel {
-      display: none;
-      background: var(--surface);
-      border: 1px solid var(--line);
-      border-radius: 8px;
-      padding: 24px;
-      min-height: 320px;
-    }
-    .story-panel.active { display: block; }
-    .story-panel h3 { font-size: 26px; margin: 0 0 10px; }
-    .story-panel p { color: var(--muted); margin: 0 0 14px; }
-    .evidence-list {
-      display: grid;
-      gap: 10px;
-      margin-top: 18px;
-    }
-    .evidence {
-      border-left: 4px solid var(--green);
-      background: #fbfcfb;
-      padding: 12px 14px;
+    .section-title p {
+      max-width: 560px;
+      margin: 0;
       color: var(--muted);
     }
-    .evidence strong { color: var(--ink); }
-
-    .timeline {
+    .grid {
       display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
       gap: 14px;
     }
-    .timeline-item {
+    .two-grid {
       display: grid;
-      grid-template-columns: 128px minmax(0, 1fr);
-      gap: 18px;
-      padding: 18px;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .card {
       border: 1px solid var(--line);
       border-radius: 8px;
-      background: var(--surface);
+      background: #fff;
+      padding: 18px;
     }
-    .timeline-date { color: var(--blue); font-weight: 800; }
-    .timeline-item h3 { margin: 0 0 6px; }
-    .timeline-item p { margin: 0; color: var(--muted); }
-
-    .project-visual {
-      overflow: hidden;
-      padding: 0;
-    }
-    .project-visual img {
+    .card h3 { margin: 0 0 8px; font-size: 19px; }
+    .card p { margin: 0; color: var(--muted); }
+    .card.visual { overflow: hidden; padding: 0; }
+    .card.visual img {
       display: block;
       width: 100%;
       background: #fff;
       border-bottom: 1px solid var(--line);
     }
-    .project-visual .card-body { padding: 20px; }
-    .link-row { display: flex; flex-wrap: wrap; gap: 10px; margin-top: 16px; }
+    .card-body { padding: 18px; }
+    .tag-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 8px;
+      margin-top: 14px;
+    }
+    .tag {
+      border-radius: 8px;
+      padding: 5px 9px;
+      font-size: 12px;
+      font-weight: 800;
+      background: #f0f2ef;
+      color: #44515b;
+    }
+    .tag.green { background: #e2f1e9; color: #27624f; }
+    .tag.blue { background: #e5eff6; color: #1f5f8b; }
+    .tag.amber { background: #f7ead2; color: #765016; }
+    .tag.coral { background: #f8e6e2; color: #8c4338; }
+    .link-row {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 12px;
+      margin-top: 16px;
+    }
     .link-row a {
       color: var(--blue);
-      font-weight: 800;
+      font-weight: 900;
       text-decoration: none;
     }
     .link-row a:hover { text-decoration: underline; }
 
-    .values {
+    .timeline { display: grid; gap: 12px; }
+    .timeline-item {
       display: grid;
-      grid-template-columns: 1.1fr 0.9fr;
-      gap: 16px;
+      grid-template-columns: 126px minmax(0, 1fr);
+      gap: 18px;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      padding: 18px;
+      background: #fff;
+    }
+    .timeline-date { color: var(--blue); font-weight: 900; }
+    .timeline-item h3 { margin: 0 0 8px; }
+    .timeline-item p { margin: 0; color: var(--muted); }
+
+    .intro-list {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .intro-card {
+      border-left: 4px solid var(--green);
+      background: var(--soft);
     }
     .quote {
       background: var(--ink);
@@ -284,322 +334,260 @@
     }
     .quote p {
       margin: 0;
-      font-size: 24px;
+      font-size: 23px;
       line-height: 1.35;
     }
-    .quote span { display: block; margin-top: 14px; color: #c7d2da; }
-    .personal-list { display: grid; gap: 12px; }
-    .personal-list .card { border-left: 4px solid var(--amber); }
+    .quote span {
+      display: block;
+      margin-top: 14px;
+      color: #c7d2da;
+    }
 
     footer {
-      display: flex;
-      justify-content: space-between;
-      gap: 16px;
-      flex-wrap: wrap;
-      padding: 26px 0 20px;
-      border-top: 1px solid var(--line);
       color: var(--muted);
+      font-size: 13px;
+      padding-top: 18px;
+      border-top: 1px solid var(--line);
     }
-    footer a { color: var(--blue); font-weight: 800; text-decoration: none; }
 
-    @media (max-width: 920px) {
-      .hero, .story-layout, .values { grid-template-columns: 1fr; }
-      .hero { min-height: auto; }
-      .grid, .two-grid { grid-template-columns: 1fr; }
-      .section-head { align-items: start; flex-direction: column; }
+    @media (max-width: 980px) {
+      .site { grid-template-columns: 1fr; }
+      .rail {
+        position: relative;
+        height: auto;
+        padding: 28px 22px;
+      }
+      .rail-note { margin-top: 18px; }
+      .contact-block { margin-top: 30px; }
+      .stage { padding: 34px 22px 46px; }
+      .hero {
+        min-height: auto;
+        grid-template-columns: 1fr;
+        gap: 28px;
+      }
+      .portrait { max-width: 420px; }
+      .grid, .two-grid, .intro-list { grid-template-columns: 1fr; }
+      .section-title { align-items: start; flex-direction: column; }
     }
-    @media (max-width: 640px) {
-      .page { padding: 16px; }
-      .nav { align-items: start; flex-direction: column; }
-      .nav-links { justify-content: flex-start; }
-      .quick-facts { grid-template-columns: 1fr; }
+    @media (max-width: 620px) {
+      .logo-name { font-size: 28px; letter-spacing: 6px; }
+      .intro .name { font-size: 34px; }
+      .intro .copy { font-size: 17px; }
+      .facts { grid-template-columns: 1fr; }
       .timeline-item { grid-template-columns: 1fr; }
-      .profile-card { grid-template-columns: 68px minmax(0, 1fr); }
-      .avatar { width: 68px; height: 68px; }
+      .content-switcher { padding: 18px; }
+      .portrait::before { inset: 14px -14px -14px 14px; }
     }
   </style>
 </head>
 <body>
-  <div class="page">
-    <nav class="nav" aria-label="Main navigation">
-      <a class="brand" href="#top" aria-label="Sijia Li home">
-        <span class="brand-mark" aria-hidden="true"></span>
-        <span>Sijia Li</span>
-      </a>
-      <div class="nav-links">
-        <a href="#story">Story</a>
-        <a href="#work">Work</a>
-        <a href="#projects">Projects</a>
-        <a href="#personality">Personality</a>
-        <a href="mailto:lisijia228@gmail.com">Contact</a>
-      </div>
-    </nav>
-
-    <header class="hero" id="top">
+  <main class="site">
+    <aside class="rail" aria-label="Profile contact panel">
       <div>
-        <div class="eyebrow">Analytics + digital commerce + product curiosity</div>
-        <h1>I turn messy digital journeys into clear product and business decisions.</h1>
-        <p class="hero-copy">I am Sijia, an MSc Statistics candidate in Copenhagen with hands-on experience across e-commerce websites, app workflows, product data, Matomo tracking, SQL/Python analysis, and Power BI reporting.</p>
-        <div class="hero-actions">
-          <a class="button primary" href="#story">Start the interactive intro</a>
-          <a class="button" href="https://github.com/SijiaLi0228/web-analytics-portfolio" target="_blank" rel="noopener">View analytics portfolio</a>
-          <a class="button" href="mailto:lisijia228@gmail.com">Email me</a>
+        <a class="logo" href="#home" aria-label="Sijia Li home">
+          <div class="logo-name">SIJIA</div>
+          <div class="logo-home">HOME</div>
+        </a>
+        <p class="rail-note">MSc Statistics candidate focused on analytics, digital commerce, and product-facing data work.</p>
+      </div>
+      <div class="contact-block">
+        <div class="contact-item">
+          <span>Email</span>
+          <a href="mailto:lisijia228@gmail.com">lisijia228@gmail.com</a>
         </div>
-        <div class="quick-facts" aria-label="Profile facts">
-          <div class="fact"><strong>4,000+</strong><span>products in real commerce context</span></div>
-          <div class="fact"><strong>285M</strong><span>events in public clickstream portfolio</span></div>
-          <div class="fact"><strong>Full path</strong><span>tracking plan to SQL tables to dashboards</span></div>
+        <div class="contact-item">
+          <span>Location</span>
+          <strong>Copenhagen, Denmark</strong>
+        </div>
+        <div class="contact-item">
+          <span>Find me on</span>
+          <div class="social-row">
+            <a href="https://github.com/SijiaLi0228" target="_blank" rel="noopener">GitHub</a>
+            <a href="https://github.com/SijiaLi0228/web-analytics-portfolio" target="_blank" rel="noopener">Portfolio</a>
+          </div>
+        </div>
+      </div>
+    </aside>
+
+    <section class="stage" id="home">
+      <div class="hero">
+        <div class="portrait">
+          <img src="%E5%90%91%E6%97%A5%E8%91%B5.png" alt="Sijia Li profile image">
+        </div>
+        <div class="intro">
+          <div class="name">Sijia Li</div>
+          <div class="title">Analytics, Digital Commerce & Product Thinking</div>
+          <p class="copy">I turn messy digital journeys into clear product and business decisions. My background combines MSc-level statistics, hands-on e-commerce systems, Matomo tracking, SQL/Python analysis, and Power BI reporting.</p>
+          <div class="buttons">
+            <button class="button dark nav-button" type="button" data-panel="portfolio">Portfolio</button>
+            <button class="button nav-button" type="button" data-panel="resume">Resume</button>
+            <button class="button nav-button" type="button" data-panel="about">About me</button>
+          </div>
+          <div class="facts">
+            <div class="fact"><strong>4,000+</strong><span>products in real commerce context</span></div>
+            <div class="fact"><strong>285M</strong><span>events in public clickstream portfolio</span></div>
+            <div class="fact"><strong>Full path</strong><span>tracking plan to SQL tables to dashboard story</span></div>
+          </div>
         </div>
       </div>
 
-      <aside class="visual-panel" aria-label="Self introduction panels">
-        <div class="profile-card">
-          <img class="avatar" src="%E5%90%91%E6%97%A5%E8%91%B5.png" alt="Sijia Li profile image">
-          <div>
-            <h2>Short version</h2>
-            <p>Structured, curious, and practical. I like connecting real business questions with technical systems.</p>
-          </div>
-        </div>
-        <div class="intro-switcher">
-          <div class="intro-controls" role="tablist" aria-label="Self introduction length">
-            <button class="tab-button intro-button" type="button" role="tab" aria-selected="true" data-intro="intro-30">30 sec</button>
-            <button class="tab-button intro-button" type="button" role="tab" aria-selected="false" data-intro="intro-60">60 sec</button>
-            <button class="tab-button intro-button" type="button" role="tab" aria-selected="false" data-intro="intro-role">For Web Analyst</button>
-          </div>
-          <div class="intro-panel active" id="intro-30" role="tabpanel">
-            <strong>How I introduce myself quickly</strong>
-            <p>I come from statistics, but my work is very practical: I have built and supported e-commerce workflows, worked with product and order data, set up analytics tracking, and translated data into dashboards and business discussions.</p>
-          </div>
-          <div class="intro-panel" id="intro-60" role="tabpanel">
-            <strong>How I tell the fuller story</strong>
-            <p>My strongest direction is digital product analytics. I understand the technical side of websites and apps, but I also care about the business question behind the data: where customers drop off, which products need attention, and what stakeholders should do next.</p>
-          </div>
-          <div class="intro-panel" id="intro-role" role="tabpanel">
-            <strong>Why this fits web analytics roles</strong>
-            <p>I can work across the analytics chain: define events, validate tracking, clean and model data in SQL or Python, build Power BI views, and explain insights in a way marketing, product, and commercial stakeholders can use.</p>
-          </div>
-        </div>
-      </aside>
-    </header>
-
-    <section id="story">
-      <div class="section-head">
-        <h2>Choose the part of my story you want to hear.</h2>
-        <p>This page is designed for conversation. Pick a lens and the page adapts the explanation without hiding the evidence.</p>
-      </div>
-      <div class="story-layout">
-        <div class="story-tabs" role="tablist" aria-label="Story lenses">
-          <button class="tab-button story-button" type="button" aria-selected="true" data-story="story-analyst">Data analyst</button>
-          <button class="tab-button story-button" type="button" aria-selected="false" data-story="story-commerce">Digital commerce builder</button>
-          <button class="tab-button story-button" type="button" aria-selected="false" data-story="story-product">Product-minded collaborator</button>
-          <button class="tab-button story-button" type="button" aria-selected="false" data-story="story-research">Statistics background</button>
+      <section class="content-switcher" aria-label="Interactive portfolio sections">
+        <div class="tabs" role="tablist" aria-label="Portfolio sections">
+          <button class="tab-button section-button" type="button" role="tab" aria-selected="true" data-panel="overview">Overview</button>
+          <button class="tab-button section-button" type="button" role="tab" aria-selected="false" data-panel="portfolio">Portfolio</button>
+          <button class="tab-button section-button" type="button" role="tab" aria-selected="false" data-panel="resume">Resume</button>
+          <button class="tab-button section-button" type="button" role="tab" aria-selected="false" data-panel="about">About</button>
         </div>
 
-        <article class="story-panel active" id="story-analyst" role="tabpanel">
-          <h3>Data analyst</h3>
-          <p>I enjoy turning raw behavior data into usable decision layers: clean tables, KPI definitions, dashboard views, and concise explanations. I care about whether the numbers are trustworthy before they become a chart.</p>
-          <div class="evidence-list">
-            <div class="evidence"><strong>Evidence:</strong> public portfolio based on a 285M-event e-commerce clickstream dataset.</div>
-            <div class="evidence"><strong>Tools:</strong> SQL, Python, Power BI, Excel, Alteryx, Matomo, Databricks learning workflow.</div>
-            <div class="evidence"><strong>Work style:</strong> define metrics first, validate data second, then design the dashboard around stakeholder questions.</div>
+        <article class="panel active" id="overview" role="tabpanel">
+          <div class="section-title">
+            <h2>A short way to understand me.</h2>
+            <p>I am strongest where business questions, user journeys, and data systems need to make sense together.</p>
           </div>
-        </article>
-
-        <article class="story-panel" id="story-commerce" role="tabpanel">
-          <h3>Digital commerce builder</h3>
-          <p>I have worked close to the actual systems behind an e-commerce business: catalog structure, WooCommerce and PrestaShop workflows, WordPress plugins, mobile shopping flows, REST APIs, and hosting operations.</p>
-          <div class="evidence-list">
-            <div class="evidence"><strong>Scale:</strong> Denmark-based commerce context with 4,000+ products and 1,500+ users.</div>
-            <div class="evidence"><strong>Practical work:</strong> product, order, customer, web, app, and tracking-related workflows.</div>
-            <div class="evidence"><strong>Why it matters:</strong> I understand that analytics is only useful when it reflects how the site and business actually work.</div>
-          </div>
-        </article>
-
-        <article class="story-panel" id="story-product" role="tabpanel">
-          <h3>Product-minded collaborator</h3>
-          <p>I like asking what a user was trying to do, where the journey became difficult, and what evidence would help a team improve it. I can discuss technical implementation with developers and translate the result for business stakeholders.</p>
-          <div class="evidence-list">
-            <div class="evidence"><strong>Product lens:</strong> customer journey, product discovery, funnel behavior, category performance, and order flow.</div>
-            <div class="evidence"><strong>Stakeholder lens:</strong> make the dashboard answer questions, not just display charts.</div>
-            <div class="evidence"><strong>Communication:</strong> English and Mandarin; comfortable documenting technical choices clearly.</div>
-          </div>
-        </article>
-
-        <article class="story-panel" id="story-research" role="tabpanel">
-          <h3>Statistics background</h3>
-          <p>My MSc training gives me a disciplined way to think about noisy data, assumptions, uncertainty, and model interpretation. I bring that rigor into more practical analytics work.</p>
-          <div class="evidence-list">
-            <div class="evidence"><strong>Academic base:</strong> MSc Statistics, University of Copenhagen.</div>
-            <div class="evidence"><strong>Analytical habit:</strong> check definitions, sample quality, and whether a result is actionable.</div>
-            <div class="evidence"><strong>Applied direction:</strong> web analytics, product analytics, commerce data, and reporting.</div>
-          </div>
-        </article>
-      </div>
-    </section>
-
-    <section id="work">
-      <div class="section-head">
-        <h2>What I have worked on.</h2>
-        <p>The throughline is simple: I learn the system, structure the data, and make the output useful for people making decisions.</p>
-      </div>
-      <div class="timeline">
-        <div class="timeline-item">
-          <div class="timeline-date">2024 - Present</div>
-          <div>
-            <h3>Web & Data Assistant, Ume Asia Supermarket</h3>
-            <p>Worked across web, mobile, product, order, customer, and analytics workflows for a Denmark-based e-commerce business with 4,000+ products and 1,500+ users. Recent work includes Matomo setup and validation, PrestaShop migration support, SiteGround operations, and dashboard thinking for commerce KPIs.</p>
-            <div class="tag-row">
-              <span class="tag green">E-commerce operations</span>
-              <span class="tag blue">Matomo</span>
-              <span class="tag amber">WooCommerce</span>
-              <span class="tag coral">PrestaShop</span>
+          <div class="intro-list">
+            <div class="card intro-card">
+              <h3>Data analyst</h3>
+              <p>I enjoy turning raw behavior data into clean KPI tables, reliable dashboards, and explanations that help teams decide what to do next.</p>
             </div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Internship</div>
-          <div>
-            <h3>Data Analyst Intern, Bank of China</h3>
-            <p>Collected, cleaned, and analyzed financial datasets using Alteryx, Excel, Power BI, Python, and SQL Server to support structured reporting and business analysis. Built visualization outputs for non-technical stakeholders.</p>
-            <div class="tag-row">
-              <span class="tag blue">Power BI</span>
-              <span class="tag green">SQL Server</span>
-              <span class="tag amber">Alteryx</span>
-              <span class="tag">Excel</span>
+            <div class="card intro-card">
+              <h3>Digital commerce builder</h3>
+              <p>I have worked close to real e-commerce systems: catalog structure, app workflows, WooCommerce, PrestaShop, REST APIs, and hosted operations.</p>
             </div>
-          </div>
-        </div>
-        <div class="timeline-item">
-          <div class="timeline-date">Education</div>
-          <div>
-            <h3>MSc Statistics, University of Copenhagen</h3>
-            <p>Built a foundation in statistical thinking, data modeling, and careful interpretation. My current career focus is applying that background to digital product and commercial analytics.</p>
-            <div class="tag-row">
-              <span class="tag green">Statistics</span>
-              <span class="tag blue">Data modeling</span>
-              <span class="tag amber">Python/R</span>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-    <section id="projects">
-      <div class="section-head">
-        <h2>Projects that show how I think.</h2>
-        <p>The GitHub portfolio keeps the detailed documentation. This page keeps the story easy to understand.</p>
-      </div>
-      <div class="two-grid">
-        <article class="card project-visual">
-          <img src="https://raw.githubusercontent.com/SijiaLi0228/web-analytics-portfolio/main/docs/dashboard_screenshots/dashboard_overview.svg" alt="Dashboard overview for e-commerce journey and product performance">
-          <div class="card-body">
-            <h3>E-commerce web analytics portfolio</h3>
-            <p>A public project using a large e-commerce clickstream dataset to demonstrate event taxonomy, data cleaning, SQL KPI modeling, funnel analysis, product performance, data QA, and Power BI dashboard design.</p>
-            <div class="link-row">
-              <a href="https://github.com/SijiaLi0228/web-analytics-portfolio" target="_blank" rel="noopener">Repository</a>
-              <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/project_walkthrough.md" target="_blank" rel="noopener">Walkthrough</a>
-              <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/tree/main/sql" target="_blank" rel="noopener">SQL</a>
+            <div class="card intro-card">
+              <h3>Product-minded collaborator</h3>
+              <p>I like asking where users drop off, which product areas need attention, and what evidence would help marketing, product, and commercial teams align.</p>
             </div>
           </div>
         </article>
-        <article class="card project-visual">
-          <img src="https://raw.githubusercontent.com/SijiaLi0228/web-analytics-portfolio/main/docs/dashboard_screenshots/analytics_pipeline.svg" alt="Analytics pipeline from events to reporting">
-          <div class="card-body">
-            <h3>Tracking to reporting pipeline</h3>
-            <p>The pipeline mirrors the real questions in web analytics roles: what should be tracked, how data quality is checked, how event-level data becomes KPI tables, and how results are explained to stakeholders.</p>
-            <div class="link-row">
-              <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/matomo_tracking_plan.md" target="_blank" rel="noopener">Tracking plan</a>
-              <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/data_quality_checks.md" target="_blank" rel="noopener">Data QA</a>
-              <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/powerbi/dashboard_design.md" target="_blank" rel="noopener">Dashboard design</a>
+
+        <article class="panel" id="portfolio" role="tabpanel">
+          <div class="section-title">
+            <h2>Projects that show how I think.</h2>
+            <p>The detailed documentation lives on GitHub. This page keeps the story easy to present in an interview.</p>
+          </div>
+          <div class="two-grid">
+            <div class="card visual">
+              <img src="https://raw.githubusercontent.com/SijiaLi0228/web-analytics-portfolio/main/docs/dashboard_screenshots/dashboard_overview.svg" alt="Dashboard overview for e-commerce journey and product performance">
+              <div class="card-body">
+                <h3>E-commerce web analytics portfolio</h3>
+                <p>A public project using a large e-commerce clickstream dataset to demonstrate event taxonomy, data cleaning, SQL KPI modeling, funnel analysis, product performance, data QA, and Power BI dashboard design.</p>
+                <div class="link-row">
+                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio" target="_blank" rel="noopener">Repository</a>
+                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/project_walkthrough.md" target="_blank" rel="noopener">Walkthrough</a>
+                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/tree/main/sql" target="_blank" rel="noopener">SQL</a>
+                </div>
+              </div>
+            </div>
+            <div class="card visual">
+              <img src="https://raw.githubusercontent.com/SijiaLi0228/web-analytics-portfolio/main/docs/dashboard_screenshots/analytics_pipeline.svg" alt="Analytics pipeline from events to reporting">
+              <div class="card-body">
+                <h3>Tracking to reporting pipeline</h3>
+                <p>This pipeline mirrors common web analyst questions: what should be tracked, how data quality is checked, how event-level data becomes KPI tables, and how insights are explained.</p>
+                <div class="link-row">
+                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/matomo_tracking_plan.md" target="_blank" rel="noopener">Tracking plan</a>
+                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/data_quality_checks.md" target="_blank" rel="noopener">Data QA</a>
+                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/powerbi/dashboard_design.md" target="_blank" rel="noopener">Dashboard design</a>
+                </div>
+              </div>
             </div>
           </div>
         </article>
-      </div>
-    </section>
 
-    <section>
-      <div class="section-head">
-        <h2>Capability map.</h2>
-        <p>Not everything I know belongs in one job title. These are the capabilities I can bring together.</p>
-      </div>
-      <div class="grid">
-        <div class="card">
-          <h3>Analytics craft</h3>
-          <p>SQL, Python, R, Power BI, Excel, Alteryx, data cleaning, KPI design, dashboard QA, and readable documentation.</p>
-          <div class="tag-row"><span class="tag blue">SQL</span><span class="tag blue">Power BI</span><span class="tag blue">Python</span></div>
-        </div>
-        <div class="card">
-          <h3>Web and commerce systems</h3>
-          <p>WordPress, WooCommerce, PrestaShop, REST APIs, PHP, JavaScript, product catalog workflows, order flows, and hosted operations.</p>
-          <div class="tag-row"><span class="tag green">Commerce</span><span class="tag green">REST APIs</span><span class="tag green">Tracking</span></div>
-        </div>
-        <div class="card">
-          <h3>Decision support</h3>
-          <p>Turning ambiguous questions into measurable metrics, validating data, and explaining findings in a way business stakeholders can use.</p>
-          <div class="tag-row"><span class="tag amber">Stakeholders</span><span class="tag amber">Storytelling</span><span class="tag amber">QA</span></div>
-        </div>
-      </div>
-    </section>
+        <article class="panel" id="resume" role="tabpanel">
+          <div class="section-title">
+            <h2>Experience and capability map.</h2>
+            <p>The focus is practical analytics: understand the system, structure the data, validate the output, then communicate it clearly.</p>
+          </div>
+          <div class="timeline">
+            <div class="timeline-item">
+              <div class="timeline-date">2024 - Present</div>
+              <div>
+                <h3>Web & Data Assistant, Ume Asia Supermarket</h3>
+                <p>Worked across web, mobile, product, order, customer, and analytics workflows for a Denmark-based e-commerce business with 4,000+ products and 1,500+ users. Recent work includes Matomo setup and validation, PrestaShop migration support, SiteGround operations, and dashboard thinking for commerce KPIs.</p>
+                <div class="tag-row">
+                  <span class="tag green">E-commerce</span>
+                  <span class="tag blue">Matomo</span>
+                  <span class="tag amber">WooCommerce</span>
+                  <span class="tag coral">PrestaShop</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Internship</div>
+              <div>
+                <h3>Data Analyst Intern, Bank of China</h3>
+                <p>Collected, cleaned, and analyzed financial datasets using Alteryx, Excel, Power BI, Python, and SQL Server to support structured reporting and business analysis. Built visualization outputs for non-technical stakeholders.</p>
+                <div class="tag-row">
+                  <span class="tag blue">Power BI</span>
+                  <span class="tag green">SQL Server</span>
+                  <span class="tag amber">Alteryx</span>
+                  <span class="tag">Excel</span>
+                </div>
+              </div>
+            </div>
+            <div class="timeline-item">
+              <div class="timeline-date">Education</div>
+              <div>
+                <h3>MSc Statistics, University of Copenhagen</h3>
+                <p>Built a foundation in statistical thinking, data modeling, and careful interpretation. My current career focus is applying that background to digital product and commercial analytics.</p>
+                <div class="tag-row">
+                  <span class="tag green">Statistics</span>
+                  <span class="tag blue">Data modeling</span>
+                  <span class="tag amber">Python/R</span>
+                </div>
+              </div>
+            </div>
+          </div>
+        </article>
 
-    <section id="personality">
-      <div class="section-head">
-        <h2>How I work and what I enjoy.</h2>
-        <p>This is the part that helps people understand what it is like to work with me, beyond a list of tools.</p>
-      </div>
-      <div class="values">
-        <div class="quote">
-          <p>I like work where a practical business problem, a user journey, and a data structure all need to make sense together.</p>
-          <span>That is why web analytics and digital commerce feel like a natural direction for me.</span>
-        </div>
-        <div class="personal-list">
-          <div class="card">
-            <h3>Curious and hands-on</h3>
-            <p>I learn best by building, testing, and improving real systems. I am comfortable starting from an imperfect setup and making it clearer.</p>
+        <article class="panel" id="about" role="tabpanel">
+          <div class="section-title">
+            <h2>How I work and what I enjoy.</h2>
+            <p>This is the part that makes the page useful for self-introduction, not only job applications.</p>
           </div>
-          <div class="card">
-            <h3>Structured under ambiguity</h3>
-            <p>When the question is broad, I break it into definitions, data sources, checks, and decisions. This keeps analysis useful.</p>
+          <div class="two-grid">
+            <div class="quote">
+              <p>I like work where a practical business problem, a user journey, and a data structure all need to make sense together.</p>
+              <span>That is why web analytics and digital commerce feel like a natural direction for me.</span>
+            </div>
+            <div class="grid" style="grid-template-columns: 1fr;">
+              <div class="card">
+                <h3>Curious and hands-on</h3>
+                <p>I learn best by building, testing, and improving real systems. I am comfortable starting from an imperfect setup and making it clearer.</p>
+              </div>
+              <div class="card">
+                <h3>Structured under ambiguity</h3>
+                <p>When the question is broad, I break it into definitions, data sources, checks, and decisions. This keeps analysis useful.</p>
+              </div>
+              <div class="card">
+                <h3>Interested in people and products</h3>
+                <p>I pay attention to how people actually use digital experiences, not only what a dashboard says after the fact.</p>
+              </div>
+            </div>
           </div>
-          <div class="card">
-            <h3>Interested in people and products</h3>
-            <p>I pay attention to how people actually use digital experiences, not only what a dashboard says after the fact.</p>
-          </div>
-        </div>
-      </div>
-    </section>
+        </article>
+      </section>
 
-    <footer>
-      <span>Based in Copenhagen, Denmark</span>
-      <span><a href="mailto:lisijia228@gmail.com">lisijia228@gmail.com</a> | <a href="https://github.com/SijiaLi0228" target="_blank" rel="noopener">GitHub</a> | <a href="https://github.com/SijiaLi0228/web-analytics-portfolio" target="_blank" rel="noopener">Analytics portfolio</a></span>
-    </footer>
-  </div>
+      <footer>Based in Copenhagen, Denmark | <a href="mailto:lisijia228@gmail.com">lisijia228@gmail.com</a></footer>
+    </section>
+  </main>
 
   <script>
-    function activate(buttons, panels, idAttribute, activeClass) {
-      buttons.forEach((button) => {
-        button.addEventListener("click", () => {
-          const targetId = button.dataset[idAttribute];
-          buttons.forEach((item) => item.setAttribute("aria-selected", "false"));
-          panels.forEach((panel) => panel.classList.remove(activeClass));
-          button.setAttribute("aria-selected", "true");
-          document.getElementById(targetId).classList.add(activeClass);
-        });
+    const panelButtons = document.querySelectorAll("[data-panel]");
+    const panels = document.querySelectorAll(".panel");
+    const tabButtons = document.querySelectorAll(".section-button");
+
+    function showPanel(panelId) {
+      panels.forEach((panel) => panel.classList.toggle("active", panel.id === panelId));
+      tabButtons.forEach((button) => {
+        button.setAttribute("aria-selected", String(button.dataset.panel === panelId));
       });
+      document.querySelector(".content-switcher").scrollIntoView({ behavior: "smooth", block: "start" });
     }
 
-    activate(
-      document.querySelectorAll(".intro-button"),
-      document.querySelectorAll(".intro-panel"),
-      "intro",
-      "active"
-    );
-
-    activate(
-      document.querySelectorAll(".story-button"),
-      document.querySelectorAll(".story-panel"),
-      "story",
-      "active"
-    );
+    panelButtons.forEach((button) => {
+      button.addEventListener("click", () => showPanel(button.dataset.panel));
+    });
   </script>
 </body>
 </html>

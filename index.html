@@ -154,12 +154,12 @@
       font-size: 18px;
       margin-bottom: 26px;
     }
-    .buttons, .tabs {
+    .buttons {
       display: flex;
       flex-wrap: wrap;
       gap: 12px;
     }
-    .button, .tab-button {
+    .button {
       appearance: none;
       border: 2px solid var(--blue);
       border-radius: 999px;
@@ -178,7 +178,7 @@
       text-transform: uppercase;
       transition: background-color 0.18s ease, color 0.18s ease, border-color 0.18s ease;
     }
-    .button:hover, .tab-button:hover, .tab-button[aria-selected="true"] {
+    .button:hover, .button.active {
       background: var(--blue);
       color: #fff;
     }
@@ -228,7 +228,6 @@
       padding: 24px;
       margin-bottom: 36px;
     }
-    .tabs { margin-bottom: 20px; }
     .section-title {
       display: flex;
       justify-content: space-between;
@@ -419,7 +418,7 @@
           <div class="title">Analytics, Digital Commerce & Product Thinking</div>
           <p class="copy">I turn messy digital journeys into clear product and business decisions. My background combines MSc-level statistics, hands-on e-commerce systems, Matomo tracking, SQL/Python analysis, and Power BI reporting.</p>
           <div class="buttons">
-            <button class="button dark nav-button" type="button" data-panel="portfolio">Portfolio</button>
+            <button class="button nav-button" type="button" data-panel="portfolio">Portfolio</button>
             <button class="button nav-button" type="button" data-panel="resume">Resume</button>
             <button class="button nav-button" type="button" data-panel="about">About me</button>
           </div>
@@ -432,13 +431,6 @@
       </div>
 
       <section class="content-switcher" aria-label="Interactive portfolio sections">
-        <div class="tabs" role="tablist" aria-label="Portfolio sections">
-          <button class="tab-button section-button" type="button" role="tab" aria-selected="true" data-panel="overview">Overview</button>
-          <button class="tab-button section-button" type="button" role="tab" aria-selected="false" data-panel="portfolio">Portfolio</button>
-          <button class="tab-button section-button" type="button" role="tab" aria-selected="false" data-panel="resume">Resume</button>
-          <button class="tab-button section-button" type="button" role="tab" aria-selected="false" data-panel="about">About</button>
-        </div>
-
         <article class="panel active" id="overview" role="tabpanel">
           <div class="section-title">
             <h2>A short way to understand me.</h2>
@@ -565,6 +557,20 @@
               </div>
             </div>
           </div>
+          <div class="section-title" style="margin-top: 24px;">
+            <h2>Outside work.</h2>
+            <p>I keep this short because hobbies should support the personal story, not distract from the work.</p>
+          </div>
+          <div class="two-grid">
+            <div class="card">
+              <h3>Photography</h3>
+              <p>Photography trains my observation and visual storytelling: noticing details, framing information, and deciding what should be in focus.</p>
+            </div>
+            <div class="card">
+              <h3>Dance</h3>
+              <p>Dance keeps me disciplined and expressive. It also makes me comfortable learning through repetition, feedback, and small improvements.</p>
+            </div>
+          </div>
         </article>
       </section>
 
@@ -575,12 +581,11 @@
   <script>
     const panelButtons = document.querySelectorAll("[data-panel]");
     const panels = document.querySelectorAll(".panel");
-    const tabButtons = document.querySelectorAll(".section-button");
 
     function showPanel(panelId) {
       panels.forEach((panel) => panel.classList.toggle("active", panel.id === panelId));
-      tabButtons.forEach((button) => {
-        button.setAttribute("aria-selected", String(button.dataset.panel === panelId));
+      panelButtons.forEach((button) => {
+        button.classList.toggle("active", button.dataset.panel === panelId);
       });
       document.querySelector(".content-switcher").scrollIntoView({ behavior: "smooth", block: "start" });
     }

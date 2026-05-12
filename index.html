@@ -132,6 +132,7 @@
       width: 100%;
       aspect-ratio: 4 / 5;
       object-fit: cover;
+      object-position: center 42%;
       border-radius: 8px;
       box-shadow: var(--shadow);
       background: #fff;
@@ -344,6 +345,124 @@
       margin-top: 14px;
       color: #c7d2da;
     }
+    .photo-grid {
+      display: grid;
+      grid-template-columns: repeat(2, minmax(0, 1fr));
+      gap: 14px;
+    }
+    .photo-card {
+      overflow: hidden;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #fff;
+    }
+    .photo-card img {
+      display: block;
+      width: 100%;
+      height: 360px;
+      object-fit: cover;
+      background: #f4f5f1;
+    }
+    .photo-card.feature img { height: 456px; object-position: center 38%; }
+    .photo-caption { padding: 16px; }
+    .photo-caption h3 { margin: 0 0 8px; font-size: 19px; }
+    .photo-caption p { margin: 0; color: var(--muted); }
+    .copenhagen-slider {
+      display: flex;
+      flex-direction: column;
+      min-height: 100%;
+      padding: 0;
+    }
+    .slider-window {
+      position: relative;
+      overflow: hidden;
+      border-bottom: 1px solid var(--line);
+      background: #edf3f4;
+      min-height: 456px;
+    }
+    .cph-slide {
+      display: none;
+      position: absolute;
+      inset: 0;
+      margin: 0;
+    }
+    .cph-slide.active { display: block; }
+    .cph-slide img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      background: #edf3f4;
+    }
+    .cph-slide.spring img { object-position: center 36%; }
+    .cph-slide.gold img { object-position: center 48%; }
+    .cph-slide.green img { object-position: center 43%; }
+    .cph-slide.harbour img { object-position: center 55%; }
+    .cph-slide figcaption {
+      position: absolute;
+      left: 0;
+      right: 0;
+      bottom: 0;
+      padding: 42px 16px 16px;
+      color: #fff;
+      background: linear-gradient(180deg, rgba(31, 41, 51, 0), rgba(31, 41, 51, 0.72));
+    }
+    .cph-slide strong {
+      display: block;
+      font-size: 19px;
+      line-height: 1.2;
+    }
+    .cph-slide span {
+      display: block;
+      max-width: 360px;
+      margin-top: 6px;
+      color: rgba(255, 255, 255, 0.86);
+      font-size: 13px;
+    }
+    .slider-controls {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 12px;
+      padding: 14px 16px 16px;
+    }
+    .slider-button {
+      appearance: none;
+      border: 1px solid var(--line);
+      border-radius: 999px;
+      background: #fff;
+      color: var(--blue);
+      cursor: pointer;
+      font-size: 12px;
+      font-weight: 900;
+      letter-spacing: 1px;
+      padding: 7px 12px;
+      text-transform: uppercase;
+    }
+    .slider-button:hover {
+      border-color: var(--blue);
+      background: #edf5fa;
+    }
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      gap: 8px;
+    }
+    .slider-dot {
+      appearance: none;
+      width: 9px;
+      height: 9px;
+      border: 0;
+      border-radius: 999px;
+      background: #c8d3d8;
+      cursor: pointer;
+      padding: 0;
+    }
+    .slider-dot.active { background: var(--blue); }
+    .slider-copy {
+      padding: 0 16px 16px;
+      color: var(--muted);
+      font-size: 14px;
+    }
 
     footer {
       color: var(--muted);
@@ -369,6 +488,9 @@
       }
       .portrait { max-width: 420px; }
       .grid, .two-grid, .intro-list { grid-template-columns: 1fr; }
+      .photo-grid { grid-template-columns: 1fr; }
+      .photo-card.feature img { height: 360px; }
+      .slider-window { min-height: 420px; }
       .section-title { align-items: start; flex-direction: column; }
     }
     @media (max-width: 620px) {
@@ -379,6 +501,8 @@
       .timeline-item { grid-template-columns: 1fr; }
       .content-switcher { padding: 18px; }
       .portrait::before { inset: 14px -14px -14px 14px; }
+      .photo-card img, .photo-card.feature img { height: 300px; }
+      .slider-window { min-height: 420px; }
     }
   </style>
 </head>
@@ -414,7 +538,7 @@
     <section class="stage" id="home">
       <div class="hero">
         <div class="portrait">
-          <img src="%E5%90%91%E6%97%A5%E8%91%B5.png" alt="Sijia Li profile image">
+          <img src="assets/profile-seaside.jpg" alt="Sijia Li sitting by the Copenhagen waterfront">
         </div>
         <div class="intro">
           <div class="name">Sijia Li</div>
@@ -564,16 +688,58 @@
           </div>
           <div class="section-title" style="margin-top: 24px;">
             <h2>Outside work.</h2>
-            <p>I keep this short because hobbies should support the personal story, not distract from the work.</p>
+            <p>These interests are part of how I practise observation, rhythm, and attention to detail.</p>
           </div>
-          <div class="two-grid">
-            <div class="card">
-              <h3>Photography</h3>
-              <p>Photography trains my observation and visual storytelling: noticing details, framing information, and deciding what should be in focus.</p>
+          <div class="photo-grid">
+            <div class="photo-card feature">
+              <img src="assets/profile-camera.jpg" alt="Sijia Li with a camera under spring blossoms">
+              <div class="photo-caption">
+                <h3>Photography</h3>
+                <p>Photography trains my observation and visual storytelling: noticing details, framing information, and deciding what should be in focus.</p>
+              </div>
             </div>
-            <div class="card">
-              <h3>Dance</h3>
-              <p>Dance keeps me disciplined and expressive. It also makes me comfortable learning through repetition, feedback, and small improvements.</p>
+            <div class="photo-card copenhagen-slider">
+              <div class="slider-window" aria-live="polite">
+                <figure class="cph-slide spring active">
+                  <img src="assets/copenhagen-spring.jpg" alt="Pink Copenhagen spring blossoms photographed by Sijia Li">
+                  <figcaption>
+                    <strong>Spring pink</strong>
+                    <span>Soft light, blossoms, and a calm city rhythm.</span>
+                  </figcaption>
+                </figure>
+                <figure class="cph-slide gold">
+                  <img src="assets/copenhagen-gold.jpg" alt="Golden Copenhagen sunset photographed by Sijia Li">
+                  <figcaption>
+                    <strong>Warm gold</strong>
+                    <span>Evening contrast, reflections, and a slower pace.</span>
+                  </figcaption>
+                </figure>
+                <figure class="cph-slide green">
+                  <img src="assets/copenhagen-green.jpg" alt="Green Copenhagen park and bicycle scene photographed by Sijia Li">
+                  <figcaption>
+                    <strong>Nordic green</strong>
+                    <span>Everyday city life framed through color and space.</span>
+                  </figcaption>
+                </figure>
+                <figure class="cph-slide harbour">
+                  <img src="assets/copenhagen-harbour.jpg" alt="Blue Copenhagen harbour photographed by Sijia Li">
+                  <figcaption>
+                    <strong>Harbour blue</strong>
+                    <span>Open water, wind turbines, and Copenhagen's coastal identity.</span>
+                  </figcaption>
+                </figure>
+              </div>
+              <div class="slider-controls" aria-label="Copenhagen photo controls">
+                <button class="slider-button" type="button" data-slider-prev>Prev</button>
+                <div class="slider-dots">
+                  <button class="slider-dot active" type="button" data-slide-to="0" aria-label="Show spring pink Copenhagen photo"></button>
+                  <button class="slider-dot" type="button" data-slide-to="1" aria-label="Show warm gold Copenhagen photo"></button>
+                  <button class="slider-dot" type="button" data-slide-to="2" aria-label="Show Nordic green Copenhagen photo"></button>
+                  <button class="slider-dot" type="button" data-slide-to="3" aria-label="Show harbour blue Copenhagen photo"></button>
+                </div>
+                <button class="slider-button" type="button" data-slider-next>Next</button>
+              </div>
+              <p class="slider-copy">Four Copenhagen color studies from my own camera: a small way to show how I notice visual patterns, framing, and atmosphere.</p>
             </div>
           </div>
         </article>
@@ -597,6 +763,30 @@
 
     panelButtons.forEach((button) => {
       button.addEventListener("click", () => showPanel(button.dataset.panel));
+    });
+
+    const copenhagenSlides = Array.from(document.querySelectorAll(".cph-slide"));
+    const copenhagenDots = Array.from(document.querySelectorAll(".slider-dot"));
+    const previousSlideButton = document.querySelector("[data-slider-prev]");
+    const nextSlideButton = document.querySelector("[data-slider-next]");
+    let copenhagenSlideIndex = 0;
+
+    function showCopenhagenSlide(index) {
+      if (!copenhagenSlides.length) return;
+      copenhagenSlideIndex = (index + copenhagenSlides.length) % copenhagenSlides.length;
+      copenhagenSlides.forEach((slide, slideIndex) => {
+        slide.classList.toggle("active", slideIndex === copenhagenSlideIndex);
+      });
+      copenhagenDots.forEach((dot, dotIndex) => {
+        dot.classList.toggle("active", dotIndex === copenhagenSlideIndex);
+        dot.setAttribute("aria-current", String(dotIndex === copenhagenSlideIndex));
+      });
+    }
+
+    previousSlideButton?.addEventListener("click", () => showCopenhagenSlide(copenhagenSlideIndex - 1));
+    nextSlideButton?.addEventListener("click", () => showCopenhagenSlide(copenhagenSlideIndex + 1));
+    copenhagenDots.forEach((dot) => {
+      dot.addEventListener("click", () => showCopenhagenSlide(Number(dot.dataset.slideTo)));
     });
   </script>
 </body>

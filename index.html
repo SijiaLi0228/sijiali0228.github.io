@@ -161,6 +161,21 @@
       color: var(--muted);
     }
 
+    .portfolio-visuals {
+      display: grid;
+      grid-template-columns: 1fr;
+      gap: 14px;
+      margin-top: 18px;
+    }
+
+    .portfolio-visuals img {
+      width: 100%;
+      display: block;
+      border: 1px solid var(--line);
+      border-radius: 8px;
+      background: #ffffff;
+    }
+
     .case-grid {
       display: grid;
       grid-template-columns: repeat(4, minmax(0, 1fr));
@@ -253,7 +268,7 @@
       <p class="subtitle">
         MSc Statistics candidate with hands-on e-commerce experience across web tracking, product and order data, Matomo setup and validation, production-style SQL/Python analysis, and stakeholder-ready dashboard reporting.
       </p>
-      <div class="availability">Based in Copenhagen - open to relocating to Billund/Jutland at own expense or discussing a hybrid commute arrangement.</div>
+      <div class="availability">Based in Copenhagen, Denmark - flexible on location and hybrid collaboration for the right role.</div>
       <div class="actions">
         <a class="button" href="https://github.com/SijiaLi0228/web-analytics-portfolio" target="_blank" rel="noopener">View Web Analytics Portfolio</a>
         <a class="button secondary" href="mailto:lisijia228@gmail.com">Contact</a>
@@ -299,6 +314,10 @@
           <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/case_study_web_funnel.md" target="_blank" rel="noopener">Web funnel case study</a>
           <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/matomo_tracking_plan.md" target="_blank" rel="noopener">Matomo tracking plan</a>
           <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/tree/main/sql" target="_blank" rel="noopener">SQL scripts</a>
+        </div>
+        <div class="portfolio-visuals">
+          <img src="https://raw.githubusercontent.com/SijiaLi0228/web-analytics-portfolio/main/docs/dashboard_screenshots/dashboard_overview.svg" alt="E-commerce web analytics dashboard overview">
+          <img src="https://raw.githubusercontent.com/SijiaLi0228/web-analytics-portfolio/main/docs/dashboard_screenshots/analytics_pipeline.svg" alt="Analytics pipeline from tracking plan to Power BI reporting">
         </div>
       </div>
     </section>

@@ -152,7 +152,7 @@
       max-width: 560px;
       color: var(--muted);
       font-size: 18px;
-      margin-bottom: 26px;
+      margin-bottom: 0;
     }
     .buttons {
       display: flex;
@@ -227,6 +227,9 @@
       box-shadow: var(--shadow);
       padding: 24px;
       margin-bottom: 36px;
+    }
+    .switcher-actions {
+      margin-bottom: 22px;
     }
     .section-title {
       display: flex;
@@ -417,11 +420,6 @@
           <div class="name">Sijia Li</div>
           <div class="title">Analytics, Digital Commerce & Product Thinking</div>
           <p class="copy">I turn messy digital journeys into clear product and business decisions. My background combines MSc-level statistics, hands-on e-commerce systems, Matomo tracking, SQL/Python analysis, and Power BI reporting.</p>
-          <div class="buttons">
-            <button class="button nav-button" type="button" data-panel="portfolio">Portfolio</button>
-            <button class="button nav-button" type="button" data-panel="resume">Resume</button>
-            <button class="button nav-button" type="button" data-panel="about">About me</button>
-          </div>
           <div class="facts">
             <div class="fact"><strong>4,000+</strong><span>products in real commerce context</span></div>
             <div class="fact"><strong>285M</strong><span>events in public clickstream portfolio</span></div>
@@ -431,6 +429,13 @@
       </div>
 
       <section class="content-switcher" aria-label="Interactive portfolio sections">
+        <div class="buttons switcher-actions" aria-label="Portfolio sections">
+          <button class="button nav-button active" type="button" data-panel="overview">Overview</button>
+          <button class="button nav-button" type="button" data-panel="portfolio">Portfolio</button>
+          <button class="button nav-button" type="button" data-panel="resume">Resume</button>
+          <button class="button nav-button" type="button" data-panel="about">About me</button>
+        </div>
+
         <article class="panel active" id="overview" role="tabpanel">
           <div class="section-title">
             <h2>A short way to understand me.</h2>

@@ -13,6 +13,7 @@
       --accent: #1f5f8b;
       --accent-dark: #174969;
       --panel: #ffffff;
+      --soft: #edf4f8;
     }
 
     * {
@@ -28,7 +29,7 @@
     }
 
     .page {
-      max-width: 980px;
+      max-width: 1040px;
       margin: 0 auto;
       padding: 56px 24px 72px;
     }
@@ -55,7 +56,7 @@
     }
 
     .subtitle {
-      max-width: 760px;
+      max-width: 780px;
       color: var(--muted);
       font-size: 19px;
       margin: 0;
@@ -121,6 +122,27 @@
     .card p {
       margin: 0;
       color: var(--muted);
+    }
+
+    .card a {
+      color: var(--accent);
+      font-weight: 700;
+      text-decoration: none;
+    }
+
+    .links {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px 16px;
+      margin-top: 14px;
+      font-size: 15px;
+    }
+
+    .highlight {
+      background: var(--soft);
+      border: 1px solid #c9dbe7;
+      border-radius: 8px;
+      padding: 20px;
     }
 
     ul {
@@ -194,6 +216,21 @@
     </header>
 
     <section>
+      <h2>Portfolio Evidence</h2>
+      <div class="highlight">
+        <p>
+          My main portfolio project shows how I would turn web tracking data into reliable KPI tables and dashboard-ready insights: event taxonomy, Matomo-style tracking planning, Databricks SQL modeling, data quality checks, and Power BI dashboard design.
+        </p>
+        <div class="links">
+          <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/recruiter_quick_scan.md" target="_blank" rel="noopener">Recruiter quick scan</a>
+          <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/case_study_web_funnel.md" target="_blank" rel="noopener">Web funnel case study</a>
+          <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/matomo_tracking_plan.md" target="_blank" rel="noopener">Matomo tracking plan</a>
+          <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/tree/main/sql" target="_blank" rel="noopener">SQL scripts</a>
+        </div>
+      </div>
+    </section>
+
+    <section>
       <h2>Focus Areas</h2>
       <div class="grid">
         <div class="card">
@@ -212,11 +249,26 @@
       <div class="grid">
         <div class="card">
           <h3>Web Analytics Portfolio</h3>
-          <p>A synthetic e-commerce analytics project showing Databricks SQL, bronze/silver/gold modeling, data quality checks, event taxonomy, and Power BI dashboard design.</p>
+          <p>A synthetic e-commerce analytics project showing Databricks SQL, bronze/silver/gold modeling, data quality checks, event taxonomy, Matomo-style tracking planning, and Power BI dashboard design.</p>
+          <div class="links">
+            <a href="https://github.com/SijiaLi0228/web-analytics-portfolio" target="_blank" rel="noopener">Repository</a>
+            <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/interview_talking_points.md" target="_blank" rel="noopener">Interview notes</a>
+          </div>
         </div>
         <div class="card">
           <h3>Digital Commerce Experience</h3>
           <p>Worked on web, mobile, product, order, and customer-related workflows for a Denmark-based e-commerce business with 4,000+ products and 1,500+ users.</p>
+        </div>
+        <div class="card">
+          <h3>Allergen Highlighter</h3>
+          <p>A small Python/Gradio text-processing tool that identifies and highlights EU-regulated allergen keywords in ingredient text.</p>
+          <div class="links">
+            <a href="https://github.com/SijiaLi0228/allergen-highlighter" target="_blank" rel="noopener">Repository</a>
+          </div>
+        </div>
+        <div class="card">
+          <h3>Statistics Background</h3>
+          <p>MSc Statistics training with experience in regression, hypothesis testing, machine learning, and translating analytical outputs into business explanations.</p>
         </div>
       </div>
     </section>

@@ -8,25 +8,30 @@ https://sijiali0228.github.io
 
 ## Focus
 
-- Web and product analytics
-- E-commerce funnel analysis
-- Matomo and Google Analytics concepts
+- Web, marketing, and product analytics
+- E-commerce funnel and customer journey analysis
+- Matomo setup and validation, with Google Analytics exposure
 - SQL/Python data cleaning and KPI modeling
 - Power BI dashboard design
 - Medallion-style analytics workflows: raw events -> cleaned events -> business KPI tables
 - Stakeholder-facing KPI reporting
+- Cross-functional communication across business and technical topics
+
+## Real Commerce Context
+
+Current hands-on experience includes work across a Denmark-based e-commerce platform with 4,000+ products and 1,500+ users, covering product, order, customer, website, mobile, tracking, and dashboard-related workflows.
 
 ## Featured Project
 
 [web-analytics-portfolio](https://github.com/SijiaLi0228/web-analytics-portfolio)
 
-A synthetic e-commerce analytics project showing:
+An e-commerce web analytics project using public-safe sample data to demonstrate:
 
-- Databricks SQL
+- Databricks-style SQL
 - bronze/silver/gold data modeling
 - event taxonomy
-- Matomo-style tracking planning
-- data quality checks
+- Matomo tracking planning
+- data QA and validation
 - Power BI dashboard design
 - funnel, product, channel, and device performance analysis
 

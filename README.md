@@ -1,6 +1,6 @@
 # Sijia Li Portfolio Site
 
-Personal interactive portfolio site for analytics, digital commerce, product thinking, and self-introduction.
+Personal interactive vCard-style portfolio site for analytics, digital commerce, product thinking, and self-introduction.
 
 Live site:
 
@@ -18,11 +18,11 @@ This homepage is designed as a conversation-friendly portfolio rather than a pur
 
 ## Main Sections
 
-- Interactive self-introduction
-- Story lenses: data analyst, digital commerce builder, product-minded collaborator, statistics background
-- Work timeline
+- Split-screen profile introduction
+- Fixed contact and identity panel
+- Interactive overview, portfolio, resume, and about sections
 - Featured web analytics portfolio
-- Capability map
+- Work timeline and capability map
 - Work style and personality
 
 ## Featured Project

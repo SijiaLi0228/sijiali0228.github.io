@@ -1,6 +1,6 @@
 # Sijia Li Portfolio Site
 
-Personal interactive vCard-style portfolio site for analytics, digital commerce, product thinking, and self-introduction.
+Personal interactive vCard-style portfolio site for data engineering, analytics, digital commerce, product thinking, and self-introduction.
 
 Live site:
 
@@ -22,6 +22,7 @@ This homepage is designed as a conversation-friendly portfolio rather than a pur
 - Fixed contact and identity panel
 - Interactive overview, portfolio, resume, and about sections
 - Featured web analytics portfolio
+- Virtual data engineering case for interview presentation
 - Work timeline and capability map
 - Work style and personality
 

@@ -271,8 +271,39 @@
     .card.visual img {
       display: block;
       width: 100%;
+      aspect-ratio: 16 / 10;
+      object-fit: cover;
+      object-position: top center;
       background: #fff;
       border-bottom: 1px solid var(--line);
+    }
+    .portfolio-feature {
+      display: grid;
+      grid-template-columns: minmax(0, 1.1fr) minmax(290px, 0.9fr);
+      gap: 0;
+      overflow: hidden;
+      padding: 0;
+      margin-bottom: 14px;
+    }
+    .portfolio-feature img {
+      width: 100%;
+      height: 100%;
+      min-height: 380px;
+      object-fit: cover;
+      object-position: top center;
+      border-right: 1px solid var(--line);
+      background: #fff;
+    }
+    .portfolio-feature .card-body {
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      padding: 26px;
+    }
+    .depth-grid {
+      display: grid;
+      grid-template-columns: repeat(3, minmax(0, 1fr));
+      gap: 14px;
     }
     .card-body { padding: 18px; }
     .tag-row {
@@ -509,6 +540,13 @@
       }
       .portrait { max-width: 420px; }
       .grid, .two-grid, .intro-list { grid-template-columns: 1fr; }
+      .portfolio-feature { grid-template-columns: 1fr; }
+      .portfolio-feature img {
+        min-height: 300px;
+        border-right: 0;
+        border-bottom: 1px solid var(--line);
+      }
+      .depth-grid { grid-template-columns: 1fr; }
       .photo-grid { grid-template-columns: 1fr; }
       .photo-card.feature img { height: 360px; }
       .slider-window { min-height: 420px; }
@@ -604,41 +642,60 @@
 
         <article class="panel" id="portfolio" role="tabpanel">
           <div class="section-title">
-            <h2>Projects that show how I think.</h2>
-            <p>The detailed documentation lives on GitHub. This page keeps the story easy to present in an interview.</p>
+            <h2>Projects that show how I analyze.</h2>
+            <p>The portfolio now goes beyond a simple funnel: it includes retention cohorts, product friction scoring, weekly KPI monitoring, and tracking quality readiness.</p>
           </div>
-          <div class="two-grid">
+          <div class="card portfolio-feature">
+            <img src="https://raw.githubusercontent.com/SijiaLi0228/web-analytics-portfolio/main/docs/dashboard_screenshots/dashboard_overview.svg?v=20260612-advanced" alt="Advanced e-commerce clickstream dashboard with KPIs, funnel, cohort, product friction, and tracking quality panels">
+            <div class="card-body">
+              <h3>Large-scale e-commerce clickstream analytics</h3>
+              <p>A public-data project using 285M e-commerce events to show the full analyst workflow: event validation, medallion-style SQL modeling, customer journey KPIs, retention cohorts, product friction scoring, weekly monitoring, and Power BI-ready reporting.</p>
+              <ul class="mini-points">
+                <li><strong>Business question:</strong> which product, category, journey step, or tracking issue should be investigated first?</li>
+                <li><strong>Analytical method:</strong> build reusable gold tables instead of one-off charts.</li>
+                <li><strong>Output:</strong> dashboard views with caveats, monitoring flags, and suggested next actions.</li>
+              </ul>
+              <div class="tag-row">
+                <span class="tag blue">Databricks SQL</span>
+                <span class="tag green">Cohort analysis</span>
+                <span class="tag amber">Friction scoring</span>
+                <span class="tag coral">Data QA</span>
+              </div>
+              <div class="link-row">
+                <a href="https://github.com/SijiaLi0228/web-analytics-portfolio" target="_blank" rel="noopener">Repository</a>
+                <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/advanced_analysis.md" target="_blank" rel="noopener">Advanced layer</a>
+                <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/case_study_web_funnel.md" target="_blank" rel="noopener">Case study</a>
+                <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/tree/main/sql" target="_blank" rel="noopener">SQL</a>
+              </div>
+            </div>
+          </div>
+          <div class="depth-grid">
+            <div class="card">
+              <h3>Advanced gold tables</h3>
+              <p>The project now includes retention cohorts, product friction scores, weekly category monitoring, and a tracking quality scorecard.</p>
+              <div class="link-row">
+                <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/advanced_analysis.md" target="_blank" rel="noopener">Read advanced analysis</a>
+              </div>
+            </div>
             <div class="card visual">
-              <img src="https://raw.githubusercontent.com/SijiaLi0228/web-analytics-portfolio/main/docs/dashboard_screenshots/dashboard_overview.svg" alt="Dashboard overview for e-commerce journey and product performance">
+              <img src="https://raw.githubusercontent.com/SijiaLi0228/web-analytics-portfolio/main/docs/dashboard_screenshots/analytics_pipeline.svg?v=20260612-advanced" alt="Analytics pipeline from events to reporting">
               <div class="card-body">
-                <h3>E-commerce web analytics portfolio</h3>
-                <p>A public project using a large e-commerce clickstream dataset to demonstrate event taxonomy, data cleaning, SQL KPI modeling, funnel analysis, product performance, data QA, and Power BI dashboard design.</p>
-                <ul class="mini-points">
-                  <li><strong>Question:</strong> where does the customer journey lose purchase intent?</li>
-                  <li><strong>Method:</strong> model raw events into session-level journey and product KPI tables.</li>
-                  <li><strong>Output:</strong> dashboard-ready metrics and an investigation-oriented case study.</li>
-                </ul>
+                <h3>Tracking to reporting pipeline</h3>
+                <p>From public clickstream events to bronze, silver, core gold, advanced gold, and stakeholder-ready reporting.</p>
                 <div class="link-row">
-                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio" target="_blank" rel="noopener">Repository</a>
-                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/project_walkthrough.md" target="_blank" rel="noopener">Walkthrough</a>
-                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/case_study_web_funnel.md" target="_blank" rel="noopener">Case study</a>
-                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/tree/main/sql" target="_blank" rel="noopener">SQL</a>
+                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/matomo_tracking_plan.md" target="_blank" rel="noopener">Tracking plan</a>
+                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/data_quality_checks.md" target="_blank" rel="noopener">Data QA</a>
+                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/powerbi/dashboard_design.md" target="_blank" rel="noopener">Dashboard design</a>
                 </div>
               </div>
             </div>
             <div class="card visual">
-              <img src="https://raw.githubusercontent.com/SijiaLi0228/web-analytics-portfolio/main/docs/dashboard_screenshots/analytics_pipeline.svg" alt="Analytics pipeline from events to reporting">
+              <img src="https://raw.githubusercontent.com/SijiaLi0228/web-analytics-portfolio/main/docs/dashboard_screenshots/product_performance.svg?v=20260612-advanced" alt="Product friction and category performance analysis">
               <div class="card-body">
-                <h3>Tracking to reporting pipeline</h3>
-                <p>This pipeline mirrors common web analyst questions: what should be tracked, how data quality is checked, how event-level data becomes KPI tables, and how insights are explained.</p>
-                <ul class="mini-points">
-                  <li><strong>Tracking:</strong> define required events and properties before analysis.</li>
-                  <li><strong>Validation:</strong> separate tracking problems from real journey friction.</li>
-                  <li><strong>Reporting:</strong> turn validated events into reusable gold tables and dashboard views.</li>
-                </ul>
+                <h3>Product friction review</h3>
+                <p>A scoring layer that prioritizes products with high attention, weak conversion, or high remove-from-cart pressure.</p>
                 <div class="link-row">
-                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/matomo_tracking_plan.md" target="_blank" rel="noopener">Tracking plan</a>
-                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/data_quality_checks.md" target="_blank" rel="noopener">Data QA</a>
+                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/sql/07_create_gold_product_friction_scores.sql" target="_blank" rel="noopener">Friction SQL</a>
                   <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/powerbi/dashboard_design.md" target="_blank" rel="noopener">Dashboard design</a>
                 </div>
               </div>

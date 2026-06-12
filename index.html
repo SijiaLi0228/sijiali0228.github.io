@@ -305,6 +305,27 @@
       text-decoration: none;
     }
     .link-row a:hover { text-decoration: underline; }
+    .mini-points {
+      display: grid;
+      gap: 8px;
+      margin: 14px 0 0;
+      padding: 0;
+      list-style: none;
+      color: var(--muted);
+      font-size: 14px;
+    }
+    .mini-points li {
+      padding-left: 14px;
+      border-left: 3px solid var(--line);
+    }
+    .mini-points strong {
+      color: var(--ink);
+    }
+    .project-note {
+      margin-top: 14px;
+      background: var(--soft);
+    }
+    .project-note p + p { margin-top: 10px; }
 
     .timeline { display: grid; gap: 12px; }
     .timeline-item {
@@ -514,7 +535,7 @@
           <div class="logo-name">SIJIA</div>
           <div class="logo-home">HOME</div>
         </a>
-        <p class="rail-note">MSc Statistics candidate focused on analytics, digital commerce, and product-facing data work.</p>
+        <p class="rail-note">MSc Statistics graduate focused on analytics, digital commerce, and product-facing data work.</p>
       </div>
       <div class="contact-block">
         <div class="contact-item">
@@ -543,7 +564,7 @@
         <div class="intro">
           <div class="name">Sijia Li</div>
           <div class="title">Analytics, Digital Commerce & Product Thinking</div>
-          <p class="copy">I turn messy digital journeys into clear product and business decisions. My background combines MSc-level statistics, hands-on e-commerce systems, Matomo tracking, SQL/Python analysis, and Power BI reporting.</p>
+          <p class="copy">I turn messy digital journeys into clear product and business decisions. My background combines MSc-level statistics, hands-on e-commerce systems, Matomo tracking, SQL/Python analysis, workflow documentation, and Power BI reporting.</p>
           <div class="facts">
             <div class="fact"><strong>4,000+</strong><span>products in real commerce context</span></div>
             <div class="fact"><strong>285M</strong><span>events in public clickstream portfolio</span></div>
@@ -592,9 +613,15 @@
               <div class="card-body">
                 <h3>E-commerce web analytics portfolio</h3>
                 <p>A public project using a large e-commerce clickstream dataset to demonstrate event taxonomy, data cleaning, SQL KPI modeling, funnel analysis, product performance, data QA, and Power BI dashboard design.</p>
+                <ul class="mini-points">
+                  <li><strong>Question:</strong> where does the customer journey lose purchase intent?</li>
+                  <li><strong>Method:</strong> model raw events into session-level journey and product KPI tables.</li>
+                  <li><strong>Output:</strong> dashboard-ready metrics and an investigation-oriented case study.</li>
+                </ul>
                 <div class="link-row">
                   <a href="https://github.com/SijiaLi0228/web-analytics-portfolio" target="_blank" rel="noopener">Repository</a>
                   <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/project_walkthrough.md" target="_blank" rel="noopener">Walkthrough</a>
+                  <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/case_study_web_funnel.md" target="_blank" rel="noopener">Case study</a>
                   <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/tree/main/sql" target="_blank" rel="noopener">SQL</a>
                 </div>
               </div>
@@ -604,6 +631,11 @@
               <div class="card-body">
                 <h3>Tracking to reporting pipeline</h3>
                 <p>This pipeline mirrors common web analyst questions: what should be tracked, how data quality is checked, how event-level data becomes KPI tables, and how insights are explained.</p>
+                <ul class="mini-points">
+                  <li><strong>Tracking:</strong> define required events and properties before analysis.</li>
+                  <li><strong>Validation:</strong> separate tracking problems from real journey friction.</li>
+                  <li><strong>Reporting:</strong> turn validated events into reusable gold tables and dashboard views.</li>
+                </ul>
                 <div class="link-row">
                   <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/matomo_tracking_plan.md" target="_blank" rel="noopener">Tracking plan</a>
                   <a href="https://github.com/SijiaLi0228/web-analytics-portfolio/blob/main/docs/data_quality_checks.md" target="_blank" rel="noopener">Data QA</a>
@@ -611,6 +643,11 @@
                 </div>
               </div>
             </div>
+          </div>
+          <div class="card project-note">
+            <h3>How this connects to my real work</h3>
+            <p>This public project is shareable evidence of my analytics method. In my Ume Asia work, I handle real e-commerce context across product, order, customer, web, and operational workflows for a Denmark-based business with 4,000+ products and 1,500+ users.</p>
+            <p>I do not publish private business data, so this project uses public clickstream data to show the same practical pattern: define the question, understand the source system, validate the data, build clean reporting tables, and explain what a stakeholder should inspect next.</p>
           </div>
         </article>
 
@@ -624,7 +661,7 @@
               <div class="timeline-date">2024 - Present</div>
               <div>
                 <h3>Web & Data Assistant, Ume Asia Supermarket</h3>
-                <p>Worked across web, mobile, product, order, customer, and analytics workflows for a Denmark-based e-commerce business with 4,000+ products and 1,500+ users. Recent work includes Matomo setup and validation, PrestaShop migration support, SiteGround operations, and dashboard thinking for commerce KPIs.</p>
+                <p>Worked across web, mobile, product, order, customer, and analytics workflows for a Denmark-based e-commerce business with 4,000+ products and 1,500+ users. Recent work includes Matomo setup and validation, PrestaShop migration support, SiteGround operations, dashboard thinking for commerce KPIs, and practical workflow documentation.</p>
                 <div class="tag-row">
                   <span class="tag green">E-commerce</span>
                   <span class="tag blue">Matomo</span>
